@@ -44,4 +44,10 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'title', 'price']
+    list_display_links = ['id', 'user']
+
+
 admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Recipe, RecipeAdmin)

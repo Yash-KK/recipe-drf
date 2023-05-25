@@ -31,5 +31,5 @@ urlpatterns = [
     ),
 
     path('user/', include('user.urls')),
-    path('', include('recipe.urls'))
+    path('recipe/', include('recipe.urls'))
 ]

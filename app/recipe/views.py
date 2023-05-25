@@ -8,10 +8,11 @@ from rest_framework.permissions import (
     IsAuthenticated
 )
 
-from core.models import Recipe
+from core.models import Recipe, Tag
 from .serializer import (
     RecipeListSerializer,
-    RecipeDetailSerializer
+    RecipeDetailSerializer,
+    TagSerializer
 )
 from .permissions import (
     IsOwnerOrReadOnly
@@ -94,3 +95,16 @@ class ReviewDetailAPI(APIView):
             },
             status=status.HTTP_204_NO_CONTENT
         )
+
+
+class TagListAPI(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TagSerializer
+    queryset = Tag.objects.order_by('-id')
+
+
+class TagDetailAPI(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerOrReadOnly]
+
+    serializer_class = TagSerializer
+    queryset = Tag.objects.order_by('-id')

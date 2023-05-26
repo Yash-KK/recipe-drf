@@ -6,6 +6,13 @@ from core.models import (
 )
 
 
+class RecipeImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recipe
+        fields = ['id', 'image']
+        read_only_fields = ['id']
+
+
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
@@ -79,5 +86,6 @@ class RecipeDetailSerializer(serializers.ModelSerializer):
         fields = RecipeListSerializer.Meta.fields + [
             'description',
             'tags',
-            'ingredients'
+            'ingredients',
+            'image'
         ]

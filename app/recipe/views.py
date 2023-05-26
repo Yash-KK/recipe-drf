@@ -8,12 +8,19 @@ from rest_framework.permissions import (
     IsAuthenticated
 )
 
-from core.models import Recipe, Tag
+from core.models import (
+    Recipe,
+    Tag,
+    Ingredient
+)
+
 from .serializer import (
     RecipeListSerializer,
     RecipeDetailSerializer,
-    TagSerializer
+    TagSerializer,
+    IngredientSerializer
 )
+
 from .permissions import (
     IsOwnerOrReadOnly
 )
@@ -108,3 +115,17 @@ class TagDetailAPI(generics.RetrieveUpdateDestroyAPIView):
 
     serializer_class = TagSerializer
     queryset = Tag.objects.order_by('-id')
+
+
+class IngredientListAPI(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+
+    serializer_class = IngredientSerializer
+    queryset = Ingredient.objects.order_by('-id')
+
+
+class IngredientDetailAPI(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerOrReadOnly]
+
+    serializer_class = IngredientSerializer
+    queryset = Ingredient.objects.order_by('-id')

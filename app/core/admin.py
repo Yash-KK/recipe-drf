@@ -54,6 +54,12 @@ class TagAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'user']
 
 
+class IngredientAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'name']
+    list_display_links = ['id', 'user']
+
+
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.Recipe, RecipeAdmin)
 admin.site.register(models.Tag, TagAdmin)
+admin.site.register(models.Ingredient, IngredientAdmin)

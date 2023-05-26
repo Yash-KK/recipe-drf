@@ -5,7 +5,10 @@ from .views import (
     ReviewDetailAPI,
 
     TagListAPI,
-    TagDetailAPI
+    TagDetailAPI,
+
+    IngredientListAPI,
+    IngredientDetailAPI
 )
 
 urlpatterns = [
@@ -13,5 +16,12 @@ urlpatterns = [
     path('recipes/<int:pk>/', ReviewDetailAPI.as_view(), name='recipe-detail'),
 
     path('tags/', TagListAPI.as_view(), name='tag-list'),
-    path('tags/<int:pk>/', TagDetailAPI.as_view(), name='tag-detail')
+    path('tags/<int:pk>/', TagDetailAPI.as_view(), name='tag-detail'),
+
+    path('ingredients/', IngredientListAPI.as_view(), name='ingredient-list'),
+    path(
+        'ingredients/<int:pk>/',
+        IngredientDetailAPI.as_view(),
+        name='ingredient-detail'
+    )
 ]

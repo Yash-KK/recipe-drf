@@ -53,6 +53,14 @@ class Tag(models.Model):
         return f"{self.name}"
 
 
+class Ingredient(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.name}"
+
+
 class Recipe(models.Model):
     user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
@@ -61,6 +69,7 @@ class Recipe(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
     link = models.CharField(max_length=255)
     tags = models.ManyToManyField(Tag)
+    ingredients = models.ManyToManyField(Ingredient)
 
     def __str__(self):
         return f"{self.title}"

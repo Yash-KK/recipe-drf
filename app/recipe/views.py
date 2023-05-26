@@ -3,6 +3,10 @@ from django.http import Http404
 # REST_FRAMEWORK
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.parsers import (
+    MultiPartParser,
+    FormParser
+)
 from rest_framework import status, generics
 from rest_framework.permissions import (
     IsAuthenticated
@@ -18,7 +22,8 @@ from .serializer import (
     RecipeListSerializer,
     RecipeDetailSerializer,
     TagSerializer,
-    IngredientSerializer
+    IngredientSerializer,
+    RecipeImageSerializer
 )
 
 from .permissions import (
@@ -129,3 +134,11 @@ class IngredientDetailAPI(generics.RetrieveUpdateDestroyAPIView):
 
     serializer_class = IngredientSerializer
     queryset = Ingredient.objects.order_by('-id')
+
+
+class RecipeImageUploadView(generics.UpdateAPIView):
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [IsAuthenticated]
+
+    queryset = Recipe.objects.all()
+    serializer_class = RecipeImageSerializer

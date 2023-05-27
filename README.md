@@ -40,12 +40,45 @@ sudo docker-compose stop
 sudo docker-compose down -v
 ```
 
-
+<br>
 
 ## API
-After successfull deployment of the image containers our backend is up and running on : [localhost:8000](http://127.0.0.1:8000/) <br>
+After successfull deployment of the image containers our backend is up and running on : <br>
+* [localhost:8000](http://127.0.0.1:8000/) <br>
 
 <br>
 
-The application generally supports all type of crud operations for an app:
+The application generally supports all type of crud operations for an app: <br>
+* View all existing recipes[GET] and Create a new recipe instance[POST]: <br>
+  [http://127.0.0.1:8000/api/recipe/recipes/](http://127.0.0.1:8000/api/recipe/recipes/)
+  
+* View a particular recipe[GET], Update[PUT/PATCH] and Delete[DELETE] : <br>
+  [http://127.0.0.1:8000/api/recipe/recipes/<recipe_id>/](http://127.0.0.1:8000/api/recipe/recipes/<recipe_id>/)
+  
+For more information, visit: <br>
+* [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
 
+ <br>
+ 
+ ## Debugging
+
+<strong> To check running docker containers: </strong> <br>
+ ```
+ sudo docker container ls
+ ```
+
+<strong>To see all docker containers : </strong> <br>
+```
+sudo docker container ls -a
+```
+
+<strong>To view logs of a particular container while facing some issue: </strong>
+```
+sudo docker logs [container_id]
+```
+
+<br> 
+
+## Testing
+
+One can use clients like <strong> Thunder Cient </strong> extension in Vscode or <strong> Postman </strong> to test these API's

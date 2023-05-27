@@ -10,11 +10,11 @@ Recipe-DRF is a RESTful API built with Django and Django REST Framework (DRF) fo
 
 ## Key Features
 <ul>
-  <li> <strong> User Authentication: </strong> Users can register, login, and authenticate to perform CRUD operations on recipes.</li>
-  <li> <strong> Recipe Management:  </strong> Users can create new recipes, view existing recipes, update recipe details, and delete recipes.</li>
-  <li> <strong> Tag and Ingredient Management:  </strong> Users can manage tags and ingredients associated with recipes.</li>
-  <li> <strong> Image Upload:  </strong> Users can upload images for recipes using a separate API endpoint.</li>
-  <li> <strong> Filtering: </strong> Recipes can be filtered based on tags, allowing users to find recipes with specific tags.</li>
+  <li> <strong> User Authentication: </strong> Users can register, login, and authenticate to perform CRUD operations on recipes.</li> <br>
+  <li> <strong> Recipe Management:  </strong> Users can create new recipes, view existing recipes, update recipe details, and delete recipes.</li> <br>
+  <li> <strong> Tag and Ingredient Management:  </strong> Users can manage tags and ingredients associated with recipes.</li> <br>
+  <li> <strong> Image Upload:  </strong> Users can upload images for recipes using a separate API endpoint.</li> <br>
+  <li> <strong> Filtering: </strong> Recipes can be filtered based on tags, allowing users to find recipes with specific tags.</li> <br>
 </ul>
 
 <br>

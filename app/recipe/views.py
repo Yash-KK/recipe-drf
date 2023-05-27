@@ -45,7 +45,21 @@ class RecipeListAPI(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     serializer_class = RecipeListSerializer
-    queryset = Recipe.objects.order_by('-id')
+
+    def get_queryset(self):
+        queryset = Recipe.objects.order_by('-id')
+        tags = self.request.query_params.get('tags')
+        ingredients = self.request.query_params.get('ingredients')
+
+        if tags:
+            tags_list = [int(i) for i in tags.split(',')]
+            return queryset.filter(tags__in=tags_list)
+
+        if ingredients:
+            ingredients_list = [int(i) for i in ingredients.split(',')]
+            return queryset.filter(ingredients__in=ingredients_list)
+
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

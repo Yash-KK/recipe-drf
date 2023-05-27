@@ -48,14 +48,4 @@ After successfull deployment of the image containers our backend is up and runni
 <br>
 
 The application generally supports all type of crud operations for an app:
-<ul> 
-  <li>
-    View all existing recipes[GET]: <br>
-    [http://127.0.0.1:8000/api/recipe/recipes/](http://127.0.0.1:8000/api/recipe/recipes/)
-  </li>
-  
-   <li>
-    View a particular recipe[GET]: <br>
-    [http://127.0.0.1:8000/api/recipe/recipes/<recipe_id>/](http://127.0.0.1:8000/api/recipe/recipes/<recipe_id>/)
-  </li>
-</ul>
+

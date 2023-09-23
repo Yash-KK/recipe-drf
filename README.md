@@ -28,7 +28,10 @@ git@github.com:Yash-KK/recepi-drf.git
 <strong> Build and Run the Docker Container: </strong> <br>
 ```
 sudo docker-compose up -d --build
+sudo docker-compose run --rm app sh -c "python manage.py migrate"
+sudo docker-compose run --rm app sh -c "python manage.py runserver"
 ```
+
 
 <strong> Stopping a running container: </strong> <br>
 ```
